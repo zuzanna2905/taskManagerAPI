@@ -1,4 +1,6 @@
-const task = require('../models/task');
+//TODO
+//task model
+//user hash - is autorizated operation
 
 const getTasks = (db) => (req,res) => {
   const { userid } = req.query;
@@ -51,7 +53,7 @@ const updateTask = (db) => (req,res) => {
       priority:priority, 
       timestamp: new Date()
     })
-  .then(tasks => res.status(200).json(tasks))
+  .then(a => res.status(200).json('task edited'))
   .catch(err => res.status(400).json(err, ':', 'unable to get data'))
 }
 

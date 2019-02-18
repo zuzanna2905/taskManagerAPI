@@ -28,8 +28,8 @@ app.post('/register', register.handleRegister(db,bcrypt));
 app.get('/tasks', tasks.getTasks(db));
 app.get('/tasks/:id', tasks.getTask(db));
 app.post('/tasks', tasks.addTask(db));
-app.delete('./tasks/:id', tasks.deleteTask(db));
-app.put('./tasks/:id', tasks.updateTask(db));
+app.delete('/tasks/:id', tasks.deleteTask(db));
+app.put('/tasks/:id', tasks.updateTask(db));
 
 app.listen(3001 || process.env.PORT, ()=>{
     console.log(`app is running on port  ${process.env.PORT}`);
