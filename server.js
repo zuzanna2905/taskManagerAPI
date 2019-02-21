@@ -8,6 +8,7 @@ const app = express();
 const signin = require('./controlers/signin');
 const register = require('./controlers/register');
 const tasks = require('./controlers/tasks');
+const categories = require('./controlers/categories');
 
 
 const db = knex({
@@ -25,11 +26,14 @@ app.use(cors());
 
 app.post('/signin', signin.handleSignin(db,bcrypt));
 app.post('/register', register.handleRegister(db,bcrypt));
+
 app.get('/tasks', tasks.getTasks(db));
 app.get('/tasks/:id', tasks.getTask(db));
 app.post('/tasks', tasks.addTask(db));
 app.delete('/tasks/:id', tasks.deleteTask(db));
 app.put('/tasks/:id', tasks.updateTask(db));
+
+app.get('/categories', categories.getCategories(db));
 
 app.listen(3001 || process.env.PORT, ()=>{
     console.log(`app is running on port  ${process.env.PORT}`);

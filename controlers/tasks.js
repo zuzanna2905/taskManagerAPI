@@ -21,7 +21,7 @@ const getTask = (db) => (req,res) => {
 }
 
 const addTask = (db) => (req,res) => {
-  const { userid, task, category, priority } = req.query;
+  const { userid, task, category='1', priority='1' } = req.query;
   db.insert(
     { userid: userid, 
       task:task, 
